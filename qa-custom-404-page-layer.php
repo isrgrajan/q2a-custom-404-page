@@ -9,7 +9,7 @@ class qa_html_theme_layer extends qa_html_theme_base
 		$style_final = '<style type="text/css">' . $style_costum . '</style>';
 		$this->output($style_final);
 		$css_url = qa_opt('site_url').'qa-plugin/'.QA_404_FOLDER_NAME.'/qa-custom-404-style.css';
-        $this->output('<link rel="stylesheet" TYPE="text/css" href="'.$css_url.'"/>');
+        $this->output('<link rel="stylesheet" TYPE="text/css" href="'.str_replace(array("http://","https://"),"//",$css_url).'"/>');
 	}
 	
         function main()
@@ -29,7 +29,7 @@ class qa_html_theme_layer extends qa_html_theme_base
 				$this->output( '</div>' ) ;
 				$search_url = qa_opt('site_url').'search';
 				$this->output('<div class="search">
-									<form method="get" action="'.$search_url.'" _lpchecked="1" class="form-wrapper cf">
+									<form method="get" action="'.str_replace(array("http://","https://"),"//",$search_url).'" _lpchecked="1" class="form-wrapper cf">
 										<input type="text" name="q" value="" class="qa-search-field" placeholder="Search here..." required>
 										<button type="submit" class="qa-search-button"> Search  </button>
 									</form>
